@@ -31,10 +31,18 @@ function dd()
     figure('Name',['Принятый сигнал ' sn],'NumberTitle','off','Position',[10 scrsz(4)/2 - 35 scrsz(3)/2 - 50 scrsz(4)/2 - 50]);
     plot(RECEIVED_SIGNAL);
 
-    RECEIVED_SPECTRUM = abs(fft(RECEIVED_SIGNAL)); %1800:2400
+    RECEIVED_SPECTRUM1 = abs(fft(RECEIVED_SIGNAL(55000:66000))); %1800:2400
+    RECEIVED_SPECTRUM2 = abs(fft(RECEIVED_SIGNAL(81000:92000))); %1800:2400
+    RECEIVED_SPECTRUM3 = abs(fft(RECEIVED_SIGNAL(192000:203000))); %1800:2400
+    RECEIVED_SPECTRUM4 = abs(fft(RECEIVED_SIGNAL(218000:229000))); %1800:2400
     figure('Name',['Спектр принятого сигнала ' sn],'NumberTitle','off','Position',[scrsz(3)/2 + 20 scrsz(4)/2 - 35 scrsz(3)/2 - 50 scrsz(4)/2 - 50]);
-    plot(RECEIVED_SPECTRUM(1:received_cnt/2));
-
+    plot(RECEIVED_SPECTRUM1(1:length(RECEIVED_SPECTRUM1)/2));
+%     hold on
+%     plot(RECEIVED_SPECTRUM2(1:length(RECEIVED_SPECTRUM2)/2));
+%     hold on
+%     plot(RECEIVED_SPECTRUM3(1:length(RECEIVED_SPECTRUM3)/2));
+%     hold on
+%     plot(RECEIVED_SPECTRUM4(1:length(RECEIVED_SPECTRUM4)/2));
 
     % рисуем исходный сигнал и его спектр
     figure('Name',['Исходный сигнал ' sn],'NumberTitle','off','Position',[10 20 scrsz(3)/2 - 50 scrsz(4)/2 - 140]);

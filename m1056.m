@@ -29,7 +29,7 @@ function dd()
     figure('Name',['Принятый сигнал ' sn],'NumberTitle','off','Position',[10 scrsz(4)/2 - 35 scrsz(3)/2 - 50 scrsz(4)/2 - 50]);
     plot(RECEIVED_SIGNAL);
 
-    RECEIVED_SPECTRUM = abs(fft(RECEIVED_SIGNAL)); %1800:2400
+    RECEIVED_SPECTRUM = abs(fft(RECEIVED_SIGNAL(43510:82572))); %1800:2400
     figure('Name',['Спектр принятого сигнала ' sn],'NumberTitle','off','Position',[scrsz(3)/2 + 20 scrsz(4)/2 - 35 scrsz(3)/2 - 50 scrsz(4)/2 - 50]);
     plot(RECEIVED_SPECTRUM(1:received_cnt/2));
 

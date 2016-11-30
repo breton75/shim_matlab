@@ -27,26 +27,22 @@ function dd()
     [SOURCE_SIGNAL, source_cnt] = fread(frawf, 'double');
     fclose(frawf);
 
-    % рисуем полученный сигнал
+    % рисуем полученный сигнал и его спектр
     figure('Name',['Принятый сигнал ' sn],'NumberTitle','off','Position',[10 scrsz(4)/2 - 35 scrsz(3)/2 - 50 scrsz(4)/2 - 50]);
-    plot(RECEIVED_SIGNAL, 'red');
-    hold on
+    plot(RECEIVED_SIGNAL);
 
-    % рисуем исходный сигнал
-    %figure('Name',['Исходный сигнал ' sn],'NumberTitle','off','Position',[10 20 scrsz(3)/2 - 50 scrsz(4)/2 - 140]);
-    plot(SOURCE_SIGNAL * 1000, 'blue');
-
-    
-    % рисуем спектр полученного сигнала
     RECEIVED_SPECTRUM = abs(fft(RECEIVED_SIGNAL)); %1800:2400
     figure('Name',['Спектр принятого сигнала ' sn],'NumberTitle','off','Position',[scrsz(3)/2 + 20 scrsz(4)/2 - 35 scrsz(3)/2 - 50 scrsz(4)/2 - 50]);
-    plot(RECEIVED_SPECTRUM(1:received_cnt/2), 'red');
-    hold on
-    
-    % рисуем спектр исходного сигнала
-    SOURCE_SPECTRUM = abs(fft(SOURCE_SIGNAL)) * 300; %1800:2400
-    %figure('Name',['Спектр исходного сигнала ' sn],'NumberTitle','off','Position',[scrsz(3)/2 + 20 20 scrsz(3)/2 - 50 scrsz(4)/2 - 140]);
-    plot(SOURCE_SPECTRUM(1:source_cnt/2), 'blue');
+    plot(RECEIVED_SPECTRUM(1:received_cnt/2));
+
+
+    % рисуем исходный сигнал и его спектр
+    figure('Name',['Исходный сигнал ' sn],'NumberTitle','off','Position',[10 20 scrsz(3)/2 - 50 scrsz(4)/2 - 140]);
+    plot(SOURCE_SIGNAL);
+
+    SOURCE_SPECTRUM = abs(fft(SOURCE_SIGNAL)); %1800:2400
+    figure('Name',['Спектр исходного сигнала ' sn],'NumberTitle','off','Position',[scrsz(3)/2 + 20 20 scrsz(3)/2 - 50 scrsz(4)/2 - 140]);
+    plot(SOURCE_SPECTRUM(1:source_cnt/2));
     
 end
 
