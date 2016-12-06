@@ -5,10 +5,6 @@ function dd()
 
 %% COSINUS !
 %%
-
-    %[fn, fpath]=uigetfile('*.pcm', 'Файл PCM', 'd:/pcm/');
-    %fpcm=fopen([fpath fn]);
-    
     sn = '1040';
     fds = 100000; % частота дискретизации исходного сигнала
     fdr = 32552;  % частота дискретизации микрофона
@@ -18,10 +14,6 @@ function dd()
     fpcm=fopen('2016_11_24 10_40_09 2 6 32552.pcm', 'r');
     [RECEIVED_SIGNAL, received_cnt] = fread(fpcm, 'float');
     fclose(fpcm);
-
-    
-    %[fn, fpath]=uigetfile('*.rawf', 'Файл rawf', 'D:/c++/AME/Generators/');
-    %frawf=fopen([fpath fn]);
     
     frawf=fopen(['s' sn '.raw']);
     [SOURCE_SIGNAL, source_cnt] = fread(frawf, 'double');

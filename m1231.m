@@ -1,6 +1,6 @@
 function dd()
 
-%% ћ≈јЌƒ– двупол€рный последовательный (1 -1 0 1 -1 0) с посто€нным интервалом
+%% »ћѕ”Ћ№— би-импульс (1 -1 0 1 -1 0) с посто€нным интервалом
 % ширина импульса 0,2 мс. ширина интервала 0,2 мс.
 %  0,4 - 0,4 - 0,4 - 3 сек.
 % сигнал - тишина - повтор того же сигнала - пауза 3 сек.
@@ -34,12 +34,12 @@ function dd()
     plot(RECEIVED_SIGNAL);
         
     lg = legend('0,4-0,4-0,4-3 сек. импульс 0,2 мс. интервал 0,2 мс.');
-    title(lg, 'ћ≈јЌƒ– би-импульс с посто€нным интервалом. ЅќЋ№Ўќ… излуч.');
+    title(lg, '»ћѕ”Ћ№— би-импульс с посто€нным интервалом. ЅќЋ№Ўќ… излуч.');
     
     figure('Name',['—пектр прин€того сигнала ' sn],'NumberTitle','off','Position',[scrsz(3)/2 + 20 scrsz(4)/2 - 35 scrsz(3)/2 - 50 scrsz(4)/2 - 50]);
 %     RECEIVED_SPECTRUM = abs(fft(RECEIVED_SIGNAL)); %1800:2400
-    RECEIVED_SPECTRUM1 = abs(fft(RECEIVED_SIGNAL(18000:28000))); %1800:2400
-    RECEIVED_SPECTRUM2 = abs(fft(RECEIVED_SIGNAL(44000:54000))); %1800:2400
+    RECEIVED_SPECTRUM1 = abs(fft(RECEIVED_SIGNAL(71000:81000))); %1800:2400
+    RECEIVED_SPECTRUM2 = abs(fft(RECEIVED_SIGNAL(97000:107000))); %1800:2400
 %     RECEIVED_SPECTRUM3 = abs(fft(RECEIVED_SIGNAL(192000:203000))); %1800:2400
 %     RECEIVED_SPECTRUM4 = abs(fft(RECEIVED_SIGNAL(218000:229000))); %1800:2400
     
@@ -55,14 +55,14 @@ function dd()
 %     plot(x, RECEIVED_SPECTRUM4(1:slen));
         
     lg = legend('0,4-0,4-0,4-3 сек. импульс 0,2 мс. интервал 0,2 мс.');
-    title(lg, 'ћ≈јЌƒ– би-импульс с посто€нным интервалом. ЅќЋ№Ўќ… излуч.');
+    title(lg, '»ћѕ”Ћ№— би-импульс с посто€нным интервалом. ЅќЋ№Ўќ… излуч.');
 
     %% рисуем исходный сигнал и его спектр
     figure('Name',['»сходный сигнал ' sn],'NumberTitle','off','Position',[10 20 scrsz(3)/2 - 50 scrsz(4)/2 - 140]);
     plot(SOURCE_SIGNAL);
             
     lg = legend('0,4-0,4-0,4-3 сек. импульс 0,2 мс. интервал 0,2 мс.');
-    title(lg, 'ћ≈јЌƒ– би-импульс с посто€нным интервалом. ЅќЋ№Ўќ… излуч.');
+    title(lg, '»ћѕ”Ћ№— би-импульс с посто€нным интервалом. ЅќЋ№Ўќ… излуч.');
 
     SOURCE_SPECTRUM = abs(fft(SOURCE_SIGNAL)); %1800:2400
     figure('Name',['—пектр исходного сигнала ' sn],'NumberTitle','off','Position',[scrsz(3)/2 + 20 20 scrsz(3)/2 - 50 scrsz(4)/2 - 140]);
@@ -72,7 +72,7 @@ function dd()
     plot(x, SOURCE_SPECTRUM(1:slen));
             
     lg = legend('0,4-0,4-0,4-3 сек. импульс 0,2 мс. интервал 0,2 мс.');
-    title(lg, 'ћ≈јЌƒ– би-импульс с посто€нным интервалом. ЅќЋ№Ўќ… излуч.');
+    title(lg, '»ћѕ”Ћ№— би-импульс с посто€нным интервалом. ЅќЋ№Ўќ… излуч.');
     
 end
 

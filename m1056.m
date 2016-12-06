@@ -27,12 +27,23 @@ function dd()
     lg = legend('0,4-0,4-0,4-3 сек.');
     title(lg, 'ШУМ аналоговый. БОЛЬШОЙ излуч.');
     
-    RECEIVED_SPECTRUM = abs(fft(RECEIVED_SIGNAL(43510:82572))); %1800:2400
     figure('Name',['Спектр принятого сигнала ' sn],'NumberTitle','off','Position',[scrsz(3)/2 + 20 scrsz(4)/2 - 35 scrsz(3)/2 - 50 scrsz(4)/2 - 50]);
-    
-    slen = (length(RECEIVED_SPECTRUM) - 1) / 2; % 
+%     RECEIVED_SPECTRUM = abs(fft(RECEIVED_SIGNAL)); %1800:2400
+    RECEIVED_SPECTRUM1 = abs(fft(RECEIVED_SIGNAL(45000:55000))); %1800:2400
+    RECEIVED_SPECTRUM2 = abs(fft(RECEIVED_SIGNAL(72000:82000))); %1800:2400
+%     RECEIVED_SPECTRUM3 = abs(fft(RECEIVED_SIGNAL(192000:203000))); %1800:2400
+%     RECEIVED_SPECTRUM4 = abs(fft(RECEIVED_SIGNAL(218000:229000))); %1800:2400
+   
+    slen = (length(RECEIVED_SPECTRUM1) - 1) / 2; % 
     x = 0:fdr/2/slen:(fdr/2 - fdr/2/slen); % шкала частот
-    plot(x, RECEIVED_SPECTRUM(1:slen));
+    
+    plot(x, RECEIVED_SPECTRUM1(1:slen));
+    hold on
+    plot(x, RECEIVED_SPECTRUM2(1:slen));
+%     hold on
+%     plot(x, RECEIVED_SPECTRUM3(1:slen));
+%     hold on
+%     plot(x, RECEIVED_SPECTRUM4(1:slen));
     
     lg = legend('0,4-0,4-0,4-3 сек.');
     title(lg, 'ШУМ аналоговый. БОЛЬШОЙ излуч.');
