@@ -7,12 +7,13 @@ function dd()
 %% SINUS !
 %%
     
-    sn = '111111';
-    fds = 50000; % частота дискретизации исходного сигнала
+    sn = 's111111';
+    sn = 'int_150_08_12_2016';
+    fds = 100000; % частота дискретизации исходного сигнала
 
     scrsz = get(groot,'ScreenSize');
     
-    frawf=fopen(['D:/pcm/s' sn '.raw']);
+    frawf=fopen(['D:/pcm/' sn '.raw']);
     [SOURCE_SIGNAL, source_len] = fread(frawf, 'double');
     fclose(frawf);
 
@@ -23,7 +24,7 @@ function dd()
 
     %% рисуем исходный сигнал и его спектр
     figure('Name',['»сходный сигнал ' sn],'NumberTitle','off','Position',[10 20 scrsz(3)/2 - 50 scrsz(4)/2 - 140]);
-    plot(SOURCE_SIGNAL, '-o');
+    plot(SOURCE_SIGNAL);
     length(SOURCE_SIGNAL);
     
 %     lg = legend('15 ¬ќЋ№“! SINUS! сигнал 10 сек. пауза 1 сек.');
@@ -38,7 +39,7 @@ function dd()
     slen = (length(SOURCE_SPECTRUM)) / 2; % 
 
     x = 0:fds/2/slen:(fds/2 - fds/2/slen); % шкала частот
-    plot(x, SOURCE_SPECTRUM(1:slen), '-o');
+    plot(x,SOURCE_SPECTRUM(1:slen));
 %         
 %     lg = legend('15 ¬ќЋ№“! SINUS! сигнал 10 сек. пауза 1 сек.');
 %     title(lg, 'Ћ„ћ  400 √ц - 15 к√ц. ЅќЋ№Ўќ… излуч.');
